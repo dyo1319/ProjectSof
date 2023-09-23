@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router()
 module.exports = router;
 
-router.get("/",function (req,res){
-    res.render("mainPage",{});
+router.get("/",(req, res) => {
+
+    res.render("mainPage", {pageTitle:"בוקר טוב"});
+
 });
 
 router.post("/Add",function(req,res){

@@ -1,3 +1,24 @@
 body{
     background-color: aquamarine;
 }
+
+table {
+    border-collapse: collapse;
+    width: 500px;
+    background-color: #fcd0d0;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ff1d1d;
+}
+
+th {
+    background-color: #fda5a5;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #ffffff;
+}
