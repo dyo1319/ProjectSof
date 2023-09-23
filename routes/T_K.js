@@ -19,7 +19,6 @@ router.post("/Add",function(req,res){
 
         if(err){
             res.status(500).json({message: err})
-            // throw err;
         }else{
             res.status(200).json({message: "OK",lastId:rows.insertId});
         }
@@ -30,21 +29,17 @@ router.post("/Add",function(req,res){
 });
 
 router.put("/Edit/:employee_id", function (req, res) {
-    // Extract employee details from the request body
     const { first_name, last_name, email, other_employee_details } = req.body;
     const employee_id = req.params.employee_id;
 
-    // Build the SQL query to update the employee using parameterized query
     let q = `UPDATE employee SET first_name=?, last_name=?, other_employee_details=? WHERE employee_id=?`;
     let values = [first_name, last_name, other_employee_details, employee_id];
 
-    // Only include email in the query if it's provided
     if (email && email !== "") {
         q = `UPDATE employee SET first_name=?, last_name=?, email=?, other_employee_details=? WHERE employee_id=?`;
         values = [first_name, last_name, email, other_employee_details, employee_id];
     }
 
-    // Execute the SQL query to update the employee
     db_pool.query(q, values, function (err, result) {
         if (err) {
             console.error("Database error:", err);
@@ -59,10 +54,8 @@ router.put("/Edit/:employee_id", function (req, res) {
 router.delete("/Delete/:employee_id", function (req, res) {
     const employee_id = req.params.employee_id;
 
-    // Build the SQL query to delete the employee
     let q=`DELETE FROM \`employee\` WHERE employee_id='${employee_id}' `;
 
-    // Execute the SQL query to delete the employee
     db_pool.query(q, [employee_id], function (err, result) {
         if (err) {
             console.error("Database error:", err);

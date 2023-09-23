@@ -19,6 +19,6 @@ const T_K = require('./routes/T_K');
 app.use('/', T_K);
 
 
-app.listen(port, () => {            //server starts listening for any attempts from a client to connect at port: {port}
+app.listen(port, () => {
     console.log(`Now listening on port http://localhost:${port}`);
 });

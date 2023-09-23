@@ -27,6 +27,7 @@ async function addNewEmployee() {
     let last_name=document.getElementById("last_name").value;
     let email=document.getElementById("email").value;
     let other_employee_details=document.getElementById("other_employee_details").value;
+
     let response = await fetch('/Add', {
             method: 'POST',
             headers: {
@@ -39,13 +40,28 @@ async function addNewEmployee() {
     getList();
 }
 
-// Assuming you have already included the necessary JavaScript libraries and dependencies
+async function editEmployee() {
+   let objToServer = {};
+        objToServer.idx = document.getElementById('edit_employee_id').value;
+        objToServer.first_name= document.getElementById('edit_first_name').value;
+        objToServer.last_name= document.getElementById('edit_last_name').value;
+        objToServer.email = document.getElementById('edit_email').value;
+        objToServer.other_employee_details = document.getElementById("edit_other_employee_details").value;
 
+        let response = await fetch(`/Edit/${objToServer.idx}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(objToServer),
+        });
+    getList();
+}
 
 async function deleteEmployee() {
     let employeeId = document.getElementById("employee_id").value;
 
-    let response = await fetch('/Delete/' + employeeId, {
+    let response = await fetch(`/Edit/${employeeId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
