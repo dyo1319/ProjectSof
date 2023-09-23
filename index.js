@@ -18,6 +18,9 @@ global.db_pool = db_M.pool;
 const T_K = require('./routes/T_K');
 app.use('/', T_K);
 
+const E_K = require('./routes/Entry_K');
+app.use('/ReportEntry', E_K);
+
 
 app.listen(port, () => {
     console.log(`Now listening on port http://localhost:${port}`);
