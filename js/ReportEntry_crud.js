@@ -4,23 +4,11 @@ async function GetEmployees() {
     console.log("data=", data);
     let s = '';
     for (let row of data) {
-        s += `<option value="${row.employee_id}">${row.first_name}</option>`;
+        s += `<option value="${row.employee_id}">${row.first_name +" "+ row.last_name}</option>`;
     }
     document.getElementById("Selectemployee").innerHTML = s;
 }
-function CreateTble(){
-    let str="";
-    for(let line of raw_data){
-        str+="<tr>";
-        str+="<td>"+line.entry_id+"</td>";
-        str+="<td>"+line.employee_id+"</td>";
-        str+="<td>"+line.employee_name+"</td>";
-        str+="<td>"+line.entry_type+"</td>";
-        str+="<td>"+line.timestamp+"</td>";
-        str+="</tr>";
-    }
-    document.getElementById("ReportEntry").innerHTML=str;
-}
+
 document.addEventListener('DOMContentLoaded', () => {
     const entryButton = document.getElementById('entryButton');
     const exitButton = document.getElementById('exitButton');
@@ -49,7 +37,6 @@ async function recordEntry() {
 
         if (response.ok) {
             const responseData = await response.json();
-            GetList();
             responseDiv.textContent = responseData.message;
         } else {
             console.error('Failed to record entry.');
@@ -78,7 +65,6 @@ async function recordExit() {
 
         if (response.ok) {
             const responseData = await response.json();
-            GetList();
             exitResponseDiv.textContent = responseData.message;
         } else {
             console.error('Failed to record exit.');
@@ -88,12 +74,4 @@ async function recordExit() {
     }
 }
 
-async function GetList() {
-    let response = await fetch('/Reportentry/List');
-    let data = await response.json();
-    console.log("data=",data);
-    raw_data = data;
-    CreateTble();
-}
-GetList();
 GetEmployees();

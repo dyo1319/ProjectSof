@@ -24,6 +24,8 @@ app.use('/Employee', T_K);
 const E_K = require('./routes/Entry_K');
 app.use('/Reportentry', E_K);
 
+const T_M = require('./routes/Time_D');
+app.use('/view', T_M);
 
 app.listen(port, () => {
     console.log(`Now listening on port http://localhost:${port}`);

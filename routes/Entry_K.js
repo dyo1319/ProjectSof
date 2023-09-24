@@ -40,21 +40,3 @@ router.post('/Exit', (req, res) => {
     });
 });
 
-router.get("/List",(req, res) => {
-
-    let q="SELECT * FROM `timeentry` ";
-
-    db_pool.query(q, function(err, rows, fields){
-
-        if(err)
-        {
-            res.status(500).json({message: err})
-            // throw err;
-        }
-        else
-        {
-            res.status(200).json(rows );
-        }
-
-    });
-});

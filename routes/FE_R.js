@@ -16,3 +16,8 @@ router.get("/Addentry",(req, res) => {
 
     res.render("entryPage", {});
 });
+
+router.get("/Viewtime",(req, res) => {
+
+    res.render("TimedisplayPage", {});
+});

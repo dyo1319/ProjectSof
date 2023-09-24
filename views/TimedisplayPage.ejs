@@ -1,0 +1,23 @@
+<%- include("page_top.ejs") %>
+<main>
+    <div id="Entrylist">
+        <h1>Employee Entry and Exit Times</h1>
+        <p>Select Employee:
+            <select id="SelectEmployee" onchange="loadEmployeeData()"></select>
+        </p>
+        <table>
+            <thead>
+            <tr>
+                <th>EntryId</th>
+                <th>employeeID</th>
+                <th>EmployeeName</th>
+                <th>EntryType</th>
+                <th>Timestamp</th>
+            </tr>
+            </thead>
+            <tbody id="ReportEntry"></tbody>
+        </table>
+    </div>
+</main>
+<script src="displaytime.js"></script>
+<%- include("page_bottom.ejs") %>
