@@ -1,0 +1,29 @@
+<%- include("page_top.ejs") %>
+<main>
+    <h1>Entry/Exit Reporting</h1>
+    <p>Select Reporting Employee:
+        <select id="Selectemployee"></select>
+    </p>
+    <br>
+    <button id="entryButton">Entry</button>
+    <button id="exitButton">Exit</button>
+    <br><br>
+    <div id="response"></div>
+    <div id="exitResponse"></div>
+    <div id="Entrylist">
+        <table>
+            <thead>
+            <tr>
+                <th>EntryId</th>
+                <th>employeeID</th>
+                <th>EmployeeName</th>
+                <th>EntryType</th>
+                <th>Timestamp</th>
+            </tr>
+            </thead>
+            <tbody id="ReportEntry">  </tbody>
+        </table>
+    </div>
+</main>
+<script src="ReportEntry_crud.js"></script>
+<%- include("page_bottom.ejs") %>
