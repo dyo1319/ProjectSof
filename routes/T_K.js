@@ -2,12 +2,6 @@ const express = require('express');
 const router = express.Router()
 module.exports = router;
 
-router.get("/",(req, res) => {
-
-    res.render("mainPage", {pageTitle:"בוקר טוב"});
-
-});
-
 router.post("/Add",function(req,res){
 
     let {employee_id,first_name,last_name,email,other_employee_details}=req.body;

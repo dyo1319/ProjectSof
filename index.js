@@ -15,11 +15,14 @@ app.use(express.static(path.join(__dirname, "js")));
 var db_M = require('./database');
 global.db_pool = db_M.pool;
 
+const fe_rtr = require('./routes/FE_R');
+app.use('/', fe_rtr);
+
 const T_K = require('./routes/T_K');
-app.use('/', T_K);
+app.use('/Employee', T_K);
 
 const E_K = require('./routes/Entry_K');
-app.use('/ReportEntry', E_K);
+app.use('/Reportentry', E_K);
 
 
 app.listen(port, () => {

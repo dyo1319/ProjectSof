@@ -1,41 +1,18 @@
 <%- include("page_top.ejs") %>
 <main>
+    <h1>
+        good morning
+    </h1>
+
     <table>
         <thead>
         <tr>
-            <th>EmployeeID</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Email</th>
-            <th>EmployeeDetails</th>
+            <th></th>
+            <th>Raad Heno</th>
+            <th></th>
         </tr>
         </thead>
         <tbody id="mainTable">  </tbody>
     </table>
-
-    <h1>Add Employee</h1>
-    <form action="/Add" method="post" id="employeeForm">
-        <input type="text" name="first_name"   id="first_name"   placeholder="FirstName "/> <br><br>
-        <input type="text" name="last_name"    id="last_name "   placeholder="LastName "/> <br><br>
-        <input type="email" name="email"  id="email"  placeholder="Email"/> <br><br>
-        <input type="text" name="other_employee_details"  id="other_employee_details"  placeholder="EmployeeDetails"/> <br><br>
-        <button type="submit" onclick="addNewEmployee()">Add</button>
-    </form>
-    <h1>Delete Employee by id</h1>
-    <div>
-        <input type="text" name="employee_id" id="employee_id" placeholder="Employee ID"/>
-        <button type="button" onclick="deleteEmployee()">Delete</button>
-    </div>
-    <h1>Edit Employee by id</h1>
-    <div>
-        <input type="text" name="employee_id" id="edit_employee_id" placeholder="Employee ID"/>
-        <input type="text" name="first_name" id="edit_first_name" placeholder="First Name"/><br><br>
-        <input type="text" name="last_name" id="edit_last_name" placeholder="Last Name"/><br><br>
-        <input type="email" name="email" id="edit_email" placeholder="Email"/><br><br>
-        <input type="text" name="other_employee_details" id="edit_other_employee_details" placeholder="Employee Details"/><br><br>
-        <button onclick="editEmployee()">Edit</button>
-    </div>
-
 </main>
-<script src="employee_crud.js"></script>
 <%- include("page_bottom.ejs") %>

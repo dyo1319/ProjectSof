@@ -15,7 +15,7 @@ function CreateTble(){
 }
 
 async function getList() {
-    let response = await fetch('/List');
+    let response = await fetch('/Employee/List');
     let data = await response.json();
     console.log("data=",data);
     raw_data = data;
@@ -28,7 +28,7 @@ async function addNewEmployee() {
     let email=document.getElementById("email").value;
     let other_employee_details=document.getElementById("other_employee_details").value;
 
-    let response = await fetch('/Add', {
+    let response = await fetch('/Employee/Add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ async function editEmployee() {
         objToServer.email = document.getElementById('edit_email').value;
         objToServer.other_employee_details = document.getElementById("edit_other_employee_details").value;
 
-        let response = await fetch(`/Edit/${objToServer.idx}`, {
+        let response = await fetch(`/Employee/Edit/${objToServer.idx}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ async function editEmployee() {
 async function deleteEmployee() {
     let employeeId = document.getElementById("employee_id").value;
 
-    let response = await fetch(`/Edit/${employeeId}`, {
+    let response = await fetch(`/Employee/Delete/${employeeId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
